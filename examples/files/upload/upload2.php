@@ -9,10 +9,10 @@ $email = $_POST['email'];
 
 // Move o arquivo da pasta temporaria de upload para a pasta de destino 
 if (move_uploaded_file($file["tmp_name"], $photo_path)) { 
-	$con = new PDO('mysql:host=localhost;dbname=uploaddb', "root", "");
+	$con = new PDO('mysql:host=localhost;dbname=uploaddb', "root", "serpro");
 	$sql = "INSERT INTO avatars (email, photo_path) VALUES (:email, :photo_path)";
 	$stmt = $con->prepare($sql);
-	$result = $stmt->excute(["email"=>$email, "photo_path"=>$photo_path]);
+	$result = $stmt->execute(["email"=>$email, "photo_path"=>$photo_path]);
 } 
 else { 
     echo "Erro, o arquivo n&atilde;o pode ser enviado."; 
