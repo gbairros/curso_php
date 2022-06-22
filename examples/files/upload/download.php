@@ -15,7 +15,6 @@ $dados = $stmt->fetchAll();
 		foreach($dados as $item){
 			echo $item['id']." - ";
 			echo $item['email']." - ";
-			//echo "<a href=\"$item['photo_path']\"> Foto </a>";
 			echo "<a href=\"".$item['photo_path']."\"> Foto </a><br>";
 				
 				
